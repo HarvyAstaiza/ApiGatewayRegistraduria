@@ -21,7 +21,7 @@ app.config["JWT_SECRET_KEY"]="super-secret"  # Cambiar por el que seconveniente
 jwt=JWTManager(app)
 
 
-@app.route("/hola", methods=['GET'])
+@app.route("/", methods=['GET'])
 def test():
     json={}
     json["message"]="Server running ..."

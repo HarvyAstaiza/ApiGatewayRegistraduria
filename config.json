@@ -1,6 +1,6 @@
 {
 "url-backend": "127.0.0.1",
 "port": 7777,
-"url-backend-security": "http://apiseguridadregistraduria.onrender.com/",
-"url-backend-registraduria": "http://apiregistraduria.onrender.com/"
+"url-backend-security": "http://apiseguridadregistraduria.onrender.com",
+"url-backend-registraduria": "http://apiregistraduria.onrender.com"
 }

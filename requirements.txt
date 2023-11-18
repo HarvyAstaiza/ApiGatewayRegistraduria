@@ -14,7 +14,6 @@ MarkupSafe
 PyJWT
 pymongo
 PyYAML
-request
 requests
 six
 urllib3

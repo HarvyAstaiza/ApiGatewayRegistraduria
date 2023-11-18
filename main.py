@@ -449,4 +449,4 @@ if __name__ == '__main__':
     dataConfig=loadFileConfig()
     print("Server running : "+"http://"+dataConfig["url-backend"]+":"+str(dataConfig["port"]))
     serve(app, host=dataConfig["url-backend"], port=dataConfig["port"])
-    app.run(host="0.0.0.0", port=4000, debug=True)
+    app.run()

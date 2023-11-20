@@ -351,6 +351,14 @@ def getRoles():
     json=response.json()
     return jsonify(json)
 
+@app.route("/roles/<string:id>", methods=['GET'])
+def getRol(id):
+    headers={
+        "Content-Type": "application/json; charset=utf-8"}
+    url=dataConfig["url-backend-security"]+'/roles/'+id
+    response=requests.get(url, headers=headers)
+    json=response.json()
+    return jsonify(json)
 
 @app.route("/roles", methods=['POST'])
 def crearRoles():
@@ -384,7 +392,7 @@ def create_token():
     if response.status_code == 200:
         user=response.json()
         role_id = user.get("rol")
-        role_details = db.rol.find_one({"_id": role_id})
+        role_details = getRol(role_id)
 
         role_details = {"name": "Admin", "permissions": ["read", "write"]}
         expires=datetime.timedelta(seconds=60 * 60 * 24)

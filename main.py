@@ -392,7 +392,7 @@ def create_token():
         return jsonify({
             "token": access_token,
             "user_id": user["_id"]}),
-            "role_details": role_details
+        "role_details": role_details
     else:
         return jsonify({
             "msg": "Bad username or password"}), 401

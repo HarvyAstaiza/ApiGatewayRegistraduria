@@ -206,12 +206,14 @@ def getResultados():
     return jsonify(json)
 
 
-@app.route("/resultados", methods=['POST'])
-def crearResultado():
+
+
+@app.route("/resultados/candidato/<string:id_candidato>/mesa/<string:id_mesa>", methods=['POST'])
+def crearResultado(id_candidato, id_mesa):
     data=request.get_json()
     headers={
         "Content-Type": "application/json; charset=utf-8"}
-    url=dataConfig["url-backend-registraduria"]+'/resultados'
+    url=dataConfig["url-backend-registraduria"]+'/resultados/candidato/'+id_candidato+'/mesa/'+id_mesa
     response=requests.post(url, headers=headers, json=data)
     json=response.json()
     return jsonify(json)

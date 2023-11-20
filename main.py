@@ -391,8 +391,9 @@ def create_token():
         access_token=create_access_token(identity=user, expires_delta=expires)
         return jsonify({
             "token": access_token,
-            "user_id": user["_id"]}),
-        "role_details": role_details
+            "user_id": user["_id"],
+            "role_details": role_details
+        })
     else:
         return jsonify({
             "msg": "Bad username or password"}), 401

@@ -391,17 +391,11 @@ def create_token():
     response=requests.post(url, json=data, headers=headers)
     if response.status_code == 200:
         user=response.json()
-        role_id = user.get("rol")
-        role_details = getRol(role_id)
-
-        role_details = {"name": "Admin", "permissions": ["read", "write"]}
         expires=datetime.timedelta(seconds=60 * 60 * 24)
         access_token=create_access_token(identity=user, expires_delta=expires)
         return jsonify({
             "token": access_token,
-            "user_id": user["_id"],
-            "role_details": role_details
-        })
+            "user_id": user["_id"]})
     else:
         return jsonify({
             "msg": "Bad username or password"}), 401

@@ -384,7 +384,7 @@ def create_token():
     if response.status_code == 200:
         user=response.json()
         role_id = user.get("rol")
-        role_details = db.roles.find_one({"_id": role_id})
+        role_details = db.rol.find_one({"_id": role_id})
 
         role_details = {"name": "Admin", "permissions": ["read", "write"]}
         expires=datetime.timedelta(seconds=60 * 60 * 24)

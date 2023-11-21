@@ -312,6 +312,16 @@ def getPermisos():
     return jsonify(json)
 
 
+@app.route("/permisos/<string:id>", methods=['GET'])
+def getPermiso(id):
+    headers={
+        "Content-Type": "application/json; charset=utf-8"}
+    url=dataConfig["url-backend-security"]+'/permisos/'+id
+    response=requests.get(url, headers=headers)
+    json=response.json()
+    return jsonify(json)
+
+
 @app.route("/permisos", methods=['POST'])
 def crearPermisos():
     data=request.get_json()
